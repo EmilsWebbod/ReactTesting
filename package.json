@@ -4,6 +4,7 @@
   "description": "RSimple react app",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
     "webpack": "webpack --config webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
