@@ -17,22 +17,15 @@ const GETURI = q => {
 
 module.exports = {
   getTemp: function(location) {
-    return new Promise(res => {
-      setTimeout(() => {
-        res(100);
-      }, 2000)
-    })
-    /*
     return axios.get(GETURI(location)).then(res => {
       console.log(res);
       if (res.data.cod && res.data.message) {
-        return 100;
+        throw new Error(res.data.message);
       } else {
         return res.data.main.temp;
       }
     }, err => {
-      return 101;
+      throw new Error(err.data.message);
     });
-    */
   }
 }
