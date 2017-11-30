@@ -6,16 +6,27 @@ const ErrorModal = require('ErrorModal');
 const WeatherCore = React.createClass({
   getInitialState: function() {
     return {
-      isLoading: false,
-
+      isLoading: false
     }
   },
-  handleFormSubmit: function(city) {
+  componentDidMount: function() {
+
+  },
+  componentWillReceiveProps: function(newProps) {
+    const location = newProps.location.query.location;
+    if (location && location.length > 0) {
+      this.handleSearch(location);
+      window.location.hash = '#/';
+    }
+  },
+  handleSearch: function(city) {
     const that = this;
 
     this.setState({
       isLoading: true,
-      errorMessage: undefined
+      errorMessage: undefined,
+      city: undefined,
+      degree: undefined
     });
 
     OpenWeahterMap.getTemp(city).then(temp => {
@@ -54,7 +65,7 @@ const WeatherCore = React.createClass({
     return (
       <div>
         <h1 className="text-center page-title">Get Weather</h1>
-        <WeatherForm onSubmit={this.handleFormSubmit}/>
+        <WeatherForm onSubmit={this.handleSearch}/>
         {renderMessage()}
         {renderError()}
       </div>
