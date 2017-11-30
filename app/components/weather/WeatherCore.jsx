@@ -45,16 +45,15 @@ const WeatherCore = React.createClass({
     }
 
     function renderError() {
-      const arr = [12, 2]
       if (typeof errorMessage === 'string') {
-        return <ErrorModal title="{arr}" message={errorMessage}/>
+        return <ErrorModal title="Error with location" message={errorMessage}/>
       } else {
         return ''
       }
     }
     return (
       <div>
-        <h1 className="text-center">Get Weather</h1>
+        <h1 className="text-center page-title">Get Weather</h1>
         <WeatherForm onSubmit={this.handleFormSubmit}/>
         {renderMessage()}
         {renderError()}
