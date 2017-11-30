@@ -29,7 +29,7 @@ const WeatherCore = React.createClass({
 
     function renderMessage() {
       if (isLoading) {
-        return <h3>Loading...</h3>;
+        return <h3 className="text-center">Loading...</h3>;
       } else if (degree && city) {
         return <WeatherMessage city={city} degree={degree}/>;
       } else {
@@ -38,7 +38,7 @@ const WeatherCore = React.createClass({
     }
     return (
       <div>
-        <h2>Get Weather</h2>
+        <h1 className="text-center">Get Weather</h1>
         <WeatherForm onSubmit={this.handleFormSubmit}/>
         {renderMessage()}
       </div>
