@@ -17,7 +17,8 @@ const GETURI = q => {
 
 module.exports = {
   getTemp: function(location) {
-    return new Promise(res => {
+    return new Promise((res, rej) => {
+      if (location === 'a') { return rej('A is not valid'); }
       setTimeout(() => {
         res(101);
       }, 500);
