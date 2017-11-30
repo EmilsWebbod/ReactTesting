@@ -5,7 +5,6 @@ const Weather = React.createClass({
   render: function() {
     return (
       <div>
-        <h3>Weather Component</h3>
         <WeatherCore />
       </div>
     )
